@@ -18,19 +18,19 @@ X = np.array(data.drop([predict], axis=1))
 y = np.array(data[predict])
 
 # TRANING PROCESS
-best = 0
-for _ in range(10000):
-    x_train, x_test, y_train, y_test = sklearn.model_selection.train_test_split(X, y, test_size=0.1)
-
-    # Using Ridge Regression model
-    linear = linear_model.Ridge()
-    linear.fit(x_train, y_train)
-    acc = linear.score(x_test, y_test)
-
-    if acc > best:
-        with open("unifive_netsales_boosting_model_v2.pickle", "wb") as file:
-            pickle.dump(linear, file)
-        best = acc
+# best = 0
+# for _ in range(10000):
+#     x_train, x_test, y_train, y_test = sklearn.model_selection.train_test_split(X, y, test_size=0.1)
+#
+#     # Using Ridge Regression model
+#     linear = linear_model.Ridge()
+#     linear.fit(x_train, y_train)
+#     acc = linear.score(x_test, y_test)
+#
+#     if acc > best:
+#         with open("unifive_netsales_boosting_model_v3.pickle", "wb") as file:
+#             pickle.dump(linear, file)
+#         best = acc
 
 # Load model
 pickle_in = open("unifive_netsales_boosting_model_v2.pickle", "rb")
